@@ -1,0 +1,32 @@
+[
+    {
+
+    },
+    {
+        "id": 0,
+        "title": "Bienvenido a React Coffe Vending",
+        "secondarytext": "Tu saldo es de 2€",
+        "timeout": [
+            "Bienvenido a React Coffe Vending",
+            "2 - Selecciona cantidad de azúcar"
+        ]
+    },
+    {
+        "id": 1,
+        "title": "2 - Selecciona cantidad de azúcar",
+        "secondarytext": "1 - 2 - 3 - 4 - 5",
+        "timeout": [
+            "3 - Selecciona tipo de café",
+            "Ázucar: "
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Café seleccionado: ",
+        "secondarytext": "En proceso...",
+        "timeout": [
+            "Bebida lista",
+            "¡Qué pase un buen día!"
+        ]
+    }
+]
