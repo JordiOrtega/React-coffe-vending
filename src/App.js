@@ -12,11 +12,10 @@ class App extends Component {
     state = {
         title: "",
         secondarytext: "",
-        makingCoffe: 0
+        makingCoffe: 0,
+        sugar: 3
     }
-    // shouldComponentUpdate(nextProps, nextState){
-    //     return this.state.title !== nextState.title
-    // }
+    
     componentDidUpdate(prevProps, prevState){ 
        if (this.state.makingCoffe > 0 && this.state.title !== prevState.title){
            const messages = require('./viewers.json');
@@ -26,12 +25,10 @@ class App extends Component {
                     secondarytext: messages[this.state.makingCoffe].timeout[1],
                 });
                 console.log("dentro del setTimeout" + messages[this.state.makingCoffe].timeout[0]);    
-              }, 5000);
+              }, 4000);
 
               clearTimeout();
         }
-            
-       
 }
 
     printMessage = (makingCoffe) =>{
@@ -39,16 +36,33 @@ class App extends Component {
         const messages = require('./viewers.json');
         
         this.setState({ title: messages[makingCoffe].title });
-         this.setState({ secondarytext: messages[makingCoffe].secondarytext});
-         console.log(this.state.secondarytext);
-        
-         
-        
+        this.setState({ secondarytext: messages[makingCoffe].secondarytext});
     }
-    
-    handleClick = (e) => {
+    drawBars = (numOfBars) => {
+        let i = 0;
+        let returnBars = [];
+            for (i; i < numOfBars; i++){
+                returnBars[i] =  "<i class='fas fa-bars rotate2'></i>"
+            }
+        return returnBars;
+    }        
+    handleSugar = (e) => {
+        if ((e === 1 && this.state.sugar < 6) || (e === -1 && this.state.sugar > 0) ){
+            
+                this.setState({sugar: this.state.sugar + e});
+                let drawedBars = this.drawBars(this.state.sugar + e);
+                let mySpan = document.getElementById("secondarytext"); 
+                mySpan.innerHTML = "Azúcar: " + drawedBars.join(" ");
+        }
+    }
+    handleClick = (e, moreinfo) => {
         this.setState({makingCoffe: e});
         this.printMessage(e);
+        if (moreinfo){
+            let mySpan = document.getElementById("addTitle"); 
+            mySpan.innerHTML = moreinfo;
+        } 
+        
         
     }
    
@@ -74,11 +88,11 @@ class App extends Component {
                                                 <strong>-2-</strong>
                                             </div>
                                             <Sugar
-                                                handleSugar={this.handleClick}
+                                                handleSugar={this.handleSugar}
                                                 >plus
                                             </Sugar>
                                             <Sugar
-                                                handleSugar={this.handleClick}
+                                                handleSugar={this.handleSugar}
                                                 >minus
                                             </Sugar>
                                         </div>
