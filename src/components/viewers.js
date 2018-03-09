@@ -13,7 +13,7 @@ const viewers = (props) => {
 
 // Specifies the default values for props:
 viewers.defaultProps = {
-    title: 'Bienvenido a React Coffe Vending',
+    title: 'Bienvenido a React Coffee Vending',
     secondarytext: '1 - Acerca tu tarjeta al lector'
   };
 
