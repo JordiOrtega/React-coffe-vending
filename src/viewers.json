@@ -4,10 +4,10 @@
     },
     {
         "id": 0,
-        "title": "Bienvenido a React Coffe Vending",
+        "title": "Bienvenido a React Coffee Vending",
         "secondarytext": "Tu saldo es de 2€",
         "timeout": [
-            "Bienvenido a React Coffe Vending",
+            "Bienvenido a React Coffee Vending",
             "2 - Selecciona cantidad de azúcar"
         ]
     },
