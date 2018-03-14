@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CoffeMachine from './coffeMachine';
+import Bbdd from './bbdd';
 
 const main = (props) => {
     return (
@@ -18,7 +19,9 @@ const main = (props) => {
                          ready={props.ready}
                     />
                 </div>
-                <div className="col-3 col-sm-4"></div>
+                <div className="col-3 col-sm-4">
+                    <Bbdd />
+                </div>
             </div>
         </main>
     );
